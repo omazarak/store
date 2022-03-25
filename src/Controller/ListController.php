@@ -2,13 +2,24 @@
 // src/Controller/ListController.php
 namespace App\Controller;
 
+use App\Entity\Product;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ListController
+// require_once "../../bootstrap.php";
+
+class ListController extends AbstractController
 {
-    public function number(): Response
+    public function number(ManagerRegistry $doctrine): Response
     {
-        $number = random_int(0, 100);
+        $entityManager = $doctrine->getManager();
+        $productRepository = $entityManager->getRepository('Product');
+        $products = $productRepository->findAll();
+        
+        foreach ($products as $product) {
+            echo sprintf("-%s\n", $product->getName());
+        }
 
         return new Response(
             '<html><body>List number: '.$number.'</body></html>'

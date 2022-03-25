@@ -25,6 +25,7 @@ $conn = array(
 // obtaining the entity manager
 try {
     $entityManager = EntityManager::create($conn, $config);
+    echo('*** connected');
 } catch (\Exception $e) {
-    echo('*** failed to connect');
+    echo('*** failed to connect!!!');
 }
