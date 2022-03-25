@@ -14,15 +14,16 @@ class ListController extends AbstractController
     public function number(ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
-        $productRepository = $entityManager->getRepository('Product');
+        $productRepository = $entityManager->getRepository('App\Entity\Product');
         $products = $productRepository->findAll();
         
+        $s = '';
         foreach ($products as $product) {
-            echo sprintf("-%s\n", $product->getName());
+            $s = $s . sprintf("<li><a href='description?id=" . $product->getId() . "'>%s</a>", $product->getName());
         }
 
         return new Response(
-            '<html><body>List number: '.$number.'</body></html>'
+            '<html><body>List: '. $s . '</body></html>'
         );
     }
 }
