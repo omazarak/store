@@ -1,5 +1,5 @@
 <?php
-// src/Controller/ListController.php
+
 namespace App\Controller;
 
 use App\Entity\Product;
@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ListController extends AbstractController
 {
-    #[Route('/list')]
+    #[Route('/')]
     public function view(ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
