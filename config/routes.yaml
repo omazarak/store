@@ -7,10 +7,6 @@ kernel:
     type: annotation
 
 # the route name
-app_store_list:
-    path: /list
-    controller: App\Controller\ListController::number
-
 app_store_description:
-    path: /description
-    controller: App\Controller\DescriptionController::by_number
+    path: /view
+    controller: App\Controller\ProductController::by_number

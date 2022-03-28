@@ -1,11 +1,11 @@
 <?php
-// src/Controller/DescriptionController.php
+// src/Controller/ProductController.php
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class DescriptionController extends AbstractController
+class ProductController extends AbstractController
 {
     public function by_number(): Response
     {
