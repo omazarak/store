@@ -5,8 +5,3 @@ controllers:
 kernel:
     resource: ../src/Kernel.php
     type: annotation
-
-# the route name
-app_store_description:
-    path: /view
-    controller: App\Controller\ProductController::by_number

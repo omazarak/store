@@ -1,8 +1,9 @@
 <html>
 <body>
-  <h1>List:</h1> 
+  <h1>List:</h1>
+  <p><ul> 
     {% for product in products %}
-      <li><a href='/view?id={{ product.id }}'>{{ product.name }}</a>
+      <li><a href='/view/{{ product.id }}'>{{ product.name }}</a>
     {% endfor %}
 </body>
 </html>
