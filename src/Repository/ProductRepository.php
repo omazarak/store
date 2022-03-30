@@ -45,6 +45,25 @@ class ProductRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @return Product Returns a Product objects
+     */
+    public function findOneByName($value): ?Product
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.name = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    public function ping(): bool
+    {
+        return true;
+    }
+
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */
